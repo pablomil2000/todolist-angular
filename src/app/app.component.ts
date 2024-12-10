@@ -23,11 +23,10 @@ export class AppComponent {
     tarea.completed = !tarea.completed;
     this.ordenarTareas();
 
-    // this.tareasService.updateStorage(this.tareas);
+    this.tareasService.updateStorage(this.tareas);
   }
   ordenarTareas(): void {
     this.tareas.sort((a, b) => Number(a.completed) - Number(b.completed));
-    // this.tareasService.updateStorage(this.tareas);
   }
 
   getTarea(tareaName: string) {
@@ -35,7 +34,7 @@ export class AppComponent {
     this.tareas.push({ id: crypto.randomUUID(), name: tareaName, completed: false });
     // add to localstorage
     this.ordenarTareas();
-    // this.tareasService.updateStorage(this.tareas)
+    this.tareasService.updateStorage(this.tareas)
   }
 
   deleteTarea(tarea: Tarea): void {

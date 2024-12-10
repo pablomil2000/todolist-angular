@@ -1,21 +1,19 @@
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <h1>Lista de tareas</h1>
+<main>
+  <div class="container">
+    <div>
       <app-form-tarea (tareaAgregada)="getTarea($event)"></app-form-tarea>
     </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <ul>
+    <div>
+      <div class="card-content">
         @for (tarea of tareas; track tarea.id) {
-          <li
+          <div class="card"
           [class.completed]="tarea.completed"
           (click)="togleTareaComplete(tarea)"
           >
             {{ tarea.name }} <button (click)="deleteTarea(tarea)">Delete</button>
-          </li>
+          </div>
         }
-      </ul>
+      </div>
     </div>
   </div>
 </main>
